@@ -12,6 +12,8 @@ libsandy_FILES = libSandy.m
 libsandy_CFLAGS = -fobjc-arc -Iheaders
 ifeq ($(THEOS_PACKAGE_SCHEME),rootless)
 libsandy_LDFLAGS += -install_name @rpath/libsandy.dylib
+else ifeq ($(THEOS_PACKAGE_SCHEME),roothide)
+libsandy_LDFLAGS += -install_name @rpath/libsandy.dylib
 else
 libsandy_CFLAGS += -D XINA_SUPPORT=1
 endif
